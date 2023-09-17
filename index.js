@@ -4,6 +4,9 @@ const cors = require('cors');
 require('dotenv').config();
 const PORT = process.env.PORT;
 const { ItemsRouter } = require('./Items/Router');
+const { OrderRouter } = require('./Orders/Router');
+const { WaiterRouter } = require('./Waiters/Router');
+
 const app = express();
 
 app.use(express.json());
@@ -22,6 +25,8 @@ db.once('open', function () {
 });
 
 app.use('/items', ItemsRouter);
+app.use('/orders', OrderRouter);
+app.use('/waiter', WaiterRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening to the port ${PORT}`);
