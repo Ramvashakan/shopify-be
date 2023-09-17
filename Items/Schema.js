@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ItemsSchema = new mongoose.Schema({
   rate: {
-    type: Float,
+    type: Number,
     required: true,
   },
 });
