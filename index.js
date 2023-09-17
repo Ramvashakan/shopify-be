@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const PORT = process.env.PORT;
+const { ItemsRouter } = require('./Items/Router');
 const app = express();
 
 app.use(express.json());
@@ -19,6 +20,8 @@ db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function () {
   console.log('Connected successfully');
 });
+
+app.use('/items', ItemsRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening to the port ${PORT}`);
