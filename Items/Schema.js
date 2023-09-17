@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-export const ItemsSchema = new mongoose.Schema({
+const ItemsSchema = new mongoose.Schema({
   rate: {
     type: Float,
     required: true,
   },
 });
+
+module.exports = mongoose.model('items', ItemsSchema);

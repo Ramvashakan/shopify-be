@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-export const ItemsSchema = new mongoose.Schema({
+const WaiterSchema = new mongoose.Schema({
   Name: {
     type: String,
     required: true,
   },
 });
+
+module.exports = mongoose.model('waiters', WaiterSchema);
